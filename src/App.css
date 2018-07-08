@@ -1,0 +1,58 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+/*  expenses section */
+#expenses {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: .6em;
+}
+
+#expenses td, #expenses th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    height: 5px;
+}
+
+
+#expenses tr:nth-child(even){background-color: #f2f2f2;}
+
+#expenses tr:hover {background-color: #ddd;}
+
+#expenses th {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-align: center;
+    background-color: #097261;
+    color: white;
+    height: 10px;
+}
+/* expenses section end */
