@@ -2,7 +2,7 @@ import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { push } from 'react-router-redux';
 import { FETCH_EXPENSES } from '../constants/action-types';
 import { fetchExpenses as fetchExpensesAction } from '../actions/actions';
-import request from '../../utils/api/request';
+import { request } from '../../utils/api/request';
 
 function* fetchExpensesApi() {
   const url = `expenses`;

@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import * as actionTypes from '../constants/action-types';
 
 const initialState = {
@@ -10,7 +9,6 @@ function expensesReducer(state = initialState, action) {
     case actionTypes.FETCH_EXPENSES: {
       return {
         ...state,
-        accountInfo: action.mappedResponse,
       };
     }
     default: return state;
