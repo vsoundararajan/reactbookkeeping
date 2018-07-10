@@ -32,6 +32,28 @@
         "typeofexpense": "Expense",
         "subtypeofexpense": "Maintenance",
         "expensetype": "Debit Card"
+      },
+      {
+        "id": 4,
+        "date": "02/05/2017",
+        "towhom": "Staples",
+        "district": "Solano",
+        "amount": 175.00,
+        "description": "Binders",
+        "typeofexpense": "Expense",
+        "subtypeofexpense": "Stationary",
+        "expensetype": "Cash"
+      },
+      {
+        "id": 5,
+        "date": "02/05/2017",
+        "towhom": "McDonald",
+        "district": "Solano",
+        "amount": 75.00,
+        "description": "Burgers",
+        "typeofexpense": "Expense",
+        "subtypeofexpense": "Promotion",
+        "expensetype": "Debit Card"
       }
     ]
 }

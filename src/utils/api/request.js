@@ -36,10 +36,10 @@ export function* request(url, method, body) {
       case 'DELETE':
       case 'delete':
         return yield call(axios.delete, fullUrl, options);
+      default:
+        return yield call(axios.get, fullUrl, options);
     }
   } catch (error) {
     return error.response;
   }
 }
-
-

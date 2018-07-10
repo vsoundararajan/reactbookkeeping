@@ -7,7 +7,15 @@ function fetchExpenses() {
   };
 }
 
+function saveExpenses(action) {
+  return {
+    type: actionTypes.SAVE_EXPENSES,
+    action,
+  };
+}
+
 
 export {
   fetchExpenses,
+  saveExpenses
 };
