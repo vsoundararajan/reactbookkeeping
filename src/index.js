@@ -7,6 +7,7 @@ import { Switch, Redirect, Route } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import store, { history } from './store';
 import { components } from './expenses';
+import { components as navBarComponents} from './navbar';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';

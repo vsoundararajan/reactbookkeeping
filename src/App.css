@@ -33,7 +33,7 @@
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    font-size: .6em;
+    font-size: .9em;
 }
 
 #expenses td, #expenses th {
@@ -51,7 +51,7 @@
     padding-top: 6px;
     padding-bottom: 6px;
     text-align: center;
-    background-color: #097261;
+    background-color: #8C22D4;
     color: white;
     height: 10px;
 }

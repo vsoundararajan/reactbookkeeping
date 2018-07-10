@@ -14,8 +14,15 @@ function saveExpenses(action) {
   };
 }
 
+function setEditExpenseId(expenseId) {
+  return {
+    type: actionTypes.SET_EDIT_EXPENSE_ID,
+    expenseId: expenseId,
+  };
+}
 
 export {
   fetchExpenses,
-  saveExpenses
+  saveExpenses,
+  setEditExpenseId
 };

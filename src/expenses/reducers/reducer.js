@@ -2,6 +2,7 @@ import * as actionTypes from '../constants/action-types';
 
 const initialState = {
   expenses: [],
+  editId: null
 };
 
 function expensesReducer(state = initialState, action) {
@@ -14,7 +15,15 @@ function expensesReducer(state = initialState, action) {
     }
     case actionTypes.SAVE_EXPENSES: {
       return {
+        ...state,
         expenses,
+      }
+    }
+    case actionTypes.SET_EDIT_EXPENSE_ID: {
+      const editId = action.expenseId;
+      return {
+        ...state,
+        editId: editId,
       }
     }
     default: return state;
