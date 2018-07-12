@@ -6,6 +6,8 @@ import { bindActionCreators } from 'redux';
 import FaBeer from 'react-icons/lib/fa/beer';
 import * as FontAwesome from 'react-icons/lib/fa'
 import * as MaterialDesign from 'react-icons/lib/md'
+import TextInput from 'react-autocomplete-input';
+import 'react-autocomplete-input/dist/bundle.css';
 
 import { setEditExpenseId as setEditExpenseIdAction } from '../actions/actions';
 import ChooseDate from '../../utils/date-picker';
@@ -13,16 +15,14 @@ import ChooseDate from '../../utils/date-picker';
 export class ExpensesRow extends React.Component {
     constructor(props){
       super(props);
-      console.group("props");
-      console.log(props);
-      console.groupEnd("props");
     }
     handleClick(id){
        this.props.setEditExpenseId(id);
     }
     cancelEdit(id){
-      console.log("cancelEdit");
-      this.props.setEditExpenseId(id);
+      if(window.confirm('Sure?')){
+        this.props.setEditExpenseId(id);
+      }
     }
     renderActionButtons(){
       if(this.props.editId >= 0){
@@ -35,7 +35,8 @@ export class ExpensesRow extends React.Component {
       return(<td>
                <MaterialDesign.MdSave/>   
                &nbsp;  &nbsp; 
-               < MaterialDesign.MdCancel onClick={ () => this.cancelEdit(-999) }/>
+               < MaterialDesign.MdCancel onClick={ () => this.cancelEdit(-999)}
+               />
              </td>);
     }
     renderRow(){
@@ -43,7 +44,7 @@ export class ExpensesRow extends React.Component {
         <tr>
            <td>{this.props.row.id}</td>
            <td>{this.props.row.date}</td>
-           <td>{this.props.row.towhom}</td>
+           <td>{this.props.row.towhom} </td>
            <td>{this.props.row.district}</td>
            <td>{this.props.row.amount}</td>
            <td>{this.props.row.description}</td>
@@ -61,7 +62,7 @@ export class ExpensesRow extends React.Component {
             <tr>
               <td>{this.props.row.id}</td>
               <td><ChooseDate selected={this.props.row.date} /></td>
-              <td>{this.props.row.towhom}</td>
+              <td>{this.props.row.towhom} </td>
               <td>{this.props.row.district}</td>
               <td>{this.props.row.amount}</td>
               <td>{this.props.row.description}</td>
