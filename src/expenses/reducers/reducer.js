@@ -20,6 +20,9 @@ function expensesReducer(state = initialState, action) {
       }
     }
     case actionTypes.SET_EDIT_EXPENSE_ID: {
+      console.group("action at SET_EDIT_EXPENSE_ID");
+      console.log(action);
+      console.groupEnd("action at SET_EDIT_EXPENSE_ID");
       const editId = action.expenseId;
       return {
         ...state,

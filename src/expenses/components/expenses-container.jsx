@@ -6,13 +6,20 @@ import { bindActionCreators } from 'redux';
 import  ExpenseRow  from './expense-row.jsx';
 import { fetchExpenses as fetchExpensesAction } from '../actions/actions';
 
+
+//function handleClick(id)  { setEditExpenseIdAction(id) }
+
 export class ExpensesContainer extends React.Component {
      constructor(props){
        super(props);
+       console.group("props at constructor");
+       console.log(props);
+       console.groupEnd("props at constructor");
      }
      componentWillMount(){
        this.props.fetchExpenses();
      }
+
      renderHeader(){
       return (
              <tr>
@@ -29,10 +36,12 @@ export class ExpensesContainer extends React.Component {
              </tr>
         );
      }
+
      renderRows(){
+        const setEditExpenseId = this.props.setEditExpenseIdAction;
         const expensesRows = _.map(this.props.expenses, function(x, index) {
           return (
-              <ExpenseRow key={x.id} row={x} id={x.id}/>
+              <ExpenseRow key={x.id} row={x} id={x.id} />
             );
         });
         return expensesRows;
