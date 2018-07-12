@@ -32,7 +32,11 @@ export class ExpensesRow extends React.Component {
       }
     }
     renderSaveCancelButtons(){
-      return(<td><MaterialDesign.MdSave/>   &nbsp;  &nbsp; < MaterialDesign.MdCancel onClick={ () => this.cancelEdit(-999) }/></td>);
+      return(<td>
+               <MaterialDesign.MdSave/>   
+               &nbsp;  &nbsp; 
+               < MaterialDesign.MdCancel onClick={ () => this.cancelEdit(-999) }/>
+             </td>);
     }
     renderRow(){
       return(
