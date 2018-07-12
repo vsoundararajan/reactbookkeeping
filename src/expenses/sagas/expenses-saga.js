@@ -30,7 +30,7 @@ function* setEditExpenseId(expenseId){
 function* watchFetchExpenses(expenseId) {
   yield takeLatest(FETCH_EXPENSES, fetchExpenses);
   yield takeLatest(SAVE_EXPENSES, saveExpensesAction);
-  yield takeLatest(SET_EDIT_EXPENSE_ID, setEditExpenseId);
+  //yield takeLatest(SET_EDIT_EXPENSE_ID, setEditExpenseId);
 }
 
 export {

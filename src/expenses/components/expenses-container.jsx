@@ -63,8 +63,10 @@ export class ExpensesContainer extends React.Component {
 
 function mapStateToProps(state) {
   const expenses = _.get(state, 'expensesReducer.expenses');
+  const editId = _.get(state, 'expensesReducer.editId');
   return {
     expenses,
+    editId,
   };
 }
 
@@ -75,12 +77,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 ExpensesContainer.propTypes = {
-  applications: PropTypes.arrayOf(
-    PropTypes.shape({
-      expenses: PropTypes.string.isRequired,
-    })
-  ),
+  expenses: PropTypes.array.isRequired,
   fetchExpenses: PropTypes.func.isRequired,
+  editId: PropTypes.number.isRequired,
 };
 
 

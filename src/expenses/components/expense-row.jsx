@@ -5,7 +5,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import FaBeer from 'react-icons/lib/fa/beer';
 import * as FontAwesome from 'react-icons/lib/fa'
+import * as MaterialDesign from 'react-icons/lib/md'
+
 import { setEditExpenseId as setEditExpenseIdAction } from '../actions/actions';
+import ChooseDate from '../../utils/date-picker';
 
 export class ExpensesRow extends React.Component {
     constructor(props){
@@ -15,12 +18,23 @@ export class ExpensesRow extends React.Component {
       console.groupEnd("props");
     }
     handleClick(id){
-      console.group("id at handleClick");
-      console.log(id);
-      console.groupEnd("id at handleClick");
        this.props.setEditExpenseId(id);
     }
-    render () {
+    cancelEdit(id){
+      console.log("cancelEdit");
+      this.props.setEditExpenseId(id);
+    }
+    renderActionButtons(){
+      if(this.props.editId >= 0){
+       return(<td></td>)
+      }else{
+       return(<td>< FontAwesome.FaEdit onClick={ () => this.handleClick(this.props.row.id) }/>  &nbsp;  &nbsp;  < MaterialDesign.MdDelete /></td>)
+      }
+    }
+    renderSaveCancelButtons(){
+      return(<td><MaterialDesign.MdSave/>   &nbsp;  &nbsp; < MaterialDesign.MdCancel onClick={ () => this.cancelEdit(-999) }/></td>);
+    }
+    renderRow(){
       return(
         <tr>
            <td>{this.props.row.id}</td>
@@ -32,16 +46,40 @@ export class ExpensesRow extends React.Component {
            <td>{this.props.row.typeofexpense}</td>
            <td>{this.props.row.subtypeofexpense}</td>
            <td>{this.props.row.expensetype}</td>
-           <td>< FontAwesome.FaEdit onClick={ () => this.handleClick(this.props.row.id) }/>  &nbsp;  &nbsp;  &nbsp; < FontAwesome.FaCrosshairs /></td>
+           { this.renderActionButtons() }
         </tr>
       )
+    }
+
+    render () {
+      if(this.props.editId === this.props.row.id){
+      return(
+            <tr>
+              <td>{this.props.row.id}</td>
+              <td><ChooseDate selected={this.props.row.date} /></td>
+              <td>{this.props.row.towhom}</td>
+              <td>{this.props.row.district}</td>
+              <td>{this.props.row.amount}</td>
+              <td>{this.props.row.description}</td>
+              <td>{this.props.row.typeofexpense}</td>
+              <td>{this.props.row.subtypeofexpense}</td>
+              <td>{this.props.row.expensetype}</td>
+              <td>{ this.renderSaveCancelButtons() }</td>
+            </tr>
+          );
+      }else{
+       return this.renderRow()
+      }
+
     }
 }
 
 function mapStateToProps(state) {
   const expenses = _.get(state, 'expensesReducer.expenses');
+  const editId = _.get(state, 'expensesReducer.editId');
   return {
     expenses,
+    editId,
   };
 }
 
@@ -52,12 +90,9 @@ function mapDispatchToProps(dispatch) {
 }
 
 ExpensesRow.propTypes = {
-  applications: PropTypes.arrayOf(
-    PropTypes.shape({
-      expenses: PropTypes.string.isRequired,
-    })
-  ),
+  expenses: PropTypes.array.isRequired,
   setEditExpenseId: PropTypes.func.isRequired,
+  editId: PropTypes.number.isRequired,
 };
 
 

@@ -2,7 +2,7 @@ import * as actionTypes from '../constants/action-types';
 
 const initialState = {
   expenses: [],
-  editId: null
+  editId: -999,
 };
 
 function expensesReducer(state = initialState, action) {
